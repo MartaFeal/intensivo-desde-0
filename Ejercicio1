@@ -3,6 +3,8 @@
 #   Objetivo: 
 #    - Aprender a utilizar librerías sencillas (en este caso, os) y sus funciones. 
 #    - Aprender a utilizar los bucles y los condicionales. 
+
+
 import os.path 
 
 
