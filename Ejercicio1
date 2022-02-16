@@ -1,0 +1,19 @@
+#                   Ejercicio 1
+# Enunciado: Imprime todos los ficheros existentes en tu carpeta de Descargas
+#   Objetivo: 
+#    - Aprender a utilizar librerías sencillas (en este caso, os) y sus funciones. 
+#    - Aprender a utilizar los bucles y los condicionales. 
+import os.path 
+
+
+carpeta_descargas = "/Users/mati/Downloads"
+Descargas = os.listdir(carpeta_descargas)
+
+print("===========================")
+print("Aquí tienes mis ficheros de la carpeta Descargas: ")
+
+for file in Descargas:
+    print(file)
+
+
+print("===========================")
