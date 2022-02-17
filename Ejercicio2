@@ -1,0 +1,73 @@
+#                                 Ejercicio 2
+# Enunciado: Crea una agenda de teléfonos que se gestione por consola, que te permita:
+#1.
+# 1) Añadir a cualquier persona, indicando nombre y después teléfono
+# 2) Buscar el teléfono de una persona
+
+# Objetivo: 
+# - Aprender a manejar la entrada y la salida por consola.
+# - El uso de colecciones (array o diccionario)
+
+#2.
+# Ampliación:
+#       - Al buscar a una persona, que te muestre todas aquellas que comiencen por el texto que has introducido. Ejemplo:
+#        Introduce un nombre: Pep
+#           Resultados: 
+#                - Pepe 659331013
+#               - Pepe Martín 633743551
+
+
+
+
+#Parte 1:
+
+contacto_teléfono = {
+    "Jose": 675896,
+    "Laura": 698745,
+    "Marta": 987456
+}
+
+móvil_encendido = True
+
+while móvil_encendido:
+    print("\n=====================")
+    print("AGENDA DE TELÉFONOS")
+    print("=====================")
+    print("\n¿Quiere ver la agenda, añadir un contacto o prefiere buscar un teléfono?") 
+    print("Marque 1 si quiere ver contactos")
+    print("Marque 2 si quiere añadir contacto")
+    print("Marque 3 si quiere buscar contacto")
+    print("Marque 4 si quiere apagar el teléfono")
+    print("\nPor favor elija entre las opciones del menú")
+    
+    opción = " "
+
+    while opción not in ("1", "2", "3", "4"):
+        opción=input(" ")
+
+    if opción == "1":
+        print(contacto_teléfono)
+
+    elif opción == "2":
+        nombre = input("Nombre: ")
+        if nombre in contacto_teléfono:
+            print("Ese nombre ya está en la agenda")
+        else:
+            telf = int(input("Teléfono: "))     
+            contacto_teléfono[nombre] = telf
+            print("El teléfono se ha añadido correctamente.")
+
+    elif opción == "3": 
+        nombre = input('Nombre: ')
+        if nombre not in contacto_teléfono:
+            print("Este contacto no existe")
+        else:
+            telf = contacto_teléfono[nombre]
+            print(nombre, ":", telf)
+    
+    elif opción == "4":
+        móvil_encendido = False
+        print("Se apagó el teléfono.")
+
+    
+#Parte2         
