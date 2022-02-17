@@ -1,21 +1,61 @@
-#                   Ejercicio 1
-# Enunciado: Imprime todos los ficheros existentes en tu carpeta de Descargas
-#   Objetivo: 
-#    - Aprender a utilizar librerías sencillas (en este caso, os) y sus funciones. 
-#    - Aprender a utilizar los bucles y los condicionales. 
+#           Ejercicio 1
+# Enunciado: Imprime todos los ficheros existentes en tu carpeta de Descargas.
+# Objetivo:
+#   - Aprender a utilizar librerías sencillas (en este caso, os) y sus funciones. 
+#   - Aprender a utilizar los bucles y los condicionales. 
 
+# El algoritmo del ejercicio es el siguiente:
+# - Obtén todos los ficheros y directorios de un directorio en concreto. Para ello necesitas una función existente en la librería os (Sistema Operativo) de Python.
+# - Recorre todos los resultados obtenidos por la función anterior. Lo puedes hacer, por ejemplo, con un bucle for.
+# - Imprime por pantalla solo aquellos resultados que sean ficheros (para ello también necesitas una función existente en os. )
 
-import os.path 
+# Ampliación:
+#    - Lista los tamaños de los ficheros en formato humano.
+#    - Recorre de manera recursiva todos los directorios desde tu carpeta personal y muestra los ficheros de cada directorio y su tamaño.
 
+import os
+from os.path import join, getsize
 
+#Parte 1: 
 carpeta_descargas = "/Users/mati/Downloads"
 Descargas = os.listdir(carpeta_descargas)
 
 print("===========================")
-print("Aquí tienes mis ficheros de la carpeta Descargas: ")
+print("\nAquí tienes mi carpeta Descargas: ")
 
 for file in Descargas:
     print(file)
 
+print("\n===========================")
 
-print("===========================")
+#Parte 2:
+print("\nTamaño de los ficheros:")
+
+print(os.path.getsize(carpeta_descargas), "bytes")
+
+print("\nDe cada fichero: ")
+
+for file in Descargas:
+    
+    print(file + ': ' + str(os.path.getsize(os.path.join(carpeta_descargas, file))) + " bytes")
+   
+print("\n==============")
+
+print("\nRecorrer de manera recursiva mi carpeta Python(carpeta personal)\n")
+
+
+def recorrer_ficheros():
+    
+    for directorios, dirs, files in os.walk('/Users/mati/Desktop/PYTHON'):
+        
+        print("\nDirectorio: ", directorios)
+        print("\nArchivos: ", files)
+        print("\nTamaño: ", sum(getsize(join(directorios, name)) for name in files), "bytes"),
+       
+        
+
+recorrer_ficheros()
+
+print("\n================")
+print("\nFIN EJERCICIO")
+print("\n================")
