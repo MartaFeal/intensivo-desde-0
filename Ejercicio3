@@ -1,0 +1,35 @@
+#                       Ejercicio 3
+# Enunciado:    
+#       Crea una función que calcule los números primos entre 1 y N, siendo N el       parámetro que recibe la función.
+#   Objetivo: 
+#           - Uso de bucles anidados
+#           - El uso de colecciones
+
+
+print("=================")
+print("¿ES UN NÚMERO PRIMO?")
+print("=================")
+
+
+def numero_primo(n):
+    num = 1
+    if n < 0:
+        return 0
+    elif n == 0:
+        return 1
+    while (n > 1):
+        num *= n
+        n -= 1
+    return num
+
+def es_o_no():
+    numero_usario = int(input("Escoge un número: "))
+    numero = numero_primo(numero_usario - 1) + 1
+    if numero % numero_usario == 0:
+        print("El número es primo")
+    else:
+        print("No es primo")
+
+
+if __name__ == '__main__':
+    es_o_no()
