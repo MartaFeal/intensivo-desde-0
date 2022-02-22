@@ -61,7 +61,7 @@ while móvil_encendido:
 
     elif opción == "3": 
         nombre_buscar = input("Nombre: ")
-        print('\nLos siguientes contactos coinciden con el texto introducido: ')
+        print("\nContactos: ")
         for nombre, telf in contacto_teléfono.items():
             if nombre.startswith(nombre_buscar):
                 print(f"{nombre} : {telf}")
