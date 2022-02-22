@@ -18,14 +18,16 @@
 
 
 
-
-#Parte 1:
-
 contacto_teléfono = {
     "Jose": 675896,
     "Laura": 698745,
-    "Marta": 987456
+    "Marta": 987456,
+    "Jose Luis": 789654,
+    "Jose Carlos": 789654,
+    "Maria": 789654,
+    "Laila": 789644 
 }
+
 
 móvil_encendido = True
 
@@ -58,16 +60,13 @@ while móvil_encendido:
             print("El teléfono se ha añadido correctamente.")
 
     elif opción == "3": 
-        nombre = input('Nombre: ')
-        if nombre not in contacto_teléfono:
-            print("Este contacto no existe")
-        else:
-            telf = contacto_teléfono[nombre]
-            print(nombre, ":", telf)
-    
+        nombre_buscar = input("Nombre: ")
+        print('\nLos siguientes contactos coinciden con el texto introducido: ')
+        for nombre, telf in contacto_teléfono.items():
+            if nombre.startswith(nombre_buscar):
+                print(f"{nombre} : {telf}")
+            
     elif opción == "4":
         móvil_encendido = False
         print("Se apagó el teléfono.")
 
-    
-#Parte2         
