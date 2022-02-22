@@ -26,9 +26,9 @@ def es_o_no():
     numero_usario = int(input("Escoge un número: "))
     numero = numero_primo(numero_usario - 1) + 1
     if numero % numero_usario == 0:
-        print("El número es primo")
+        print("Es un número primo")
     else:
-        print("No es primo")
+        print("No es un número primo")
 
 
 if __name__ == '__main__':
