@@ -1,0 +1,21 @@
+#               Ejercicio 5
+# Enunciado: Convierte un Excel a CSV
+#   Objetivo:
+#           - Aprender a trabajar con ficheros
+#           - Usar la librería pandas de Python
+
+import pandas as pd
+
+
+print("==========")
+print("CONVIERTE UN EXCEL A CSV")
+print("==========")
+
+excel = pd.read_excel("/Users/mati/downloads/PDF.xlsx", index_col=0, engine='openpyxl')
+csv = excel.to_csv("/Users/mati/downloads/PDF2.csv")
+nuevo_csv = pd.read_csv ("/Users/mati/downloads/PDF2.csv", header=None)
+print("\nEXCEL: \n")
+print(excel)
+print("\n=========")
+print("\nConvertido en CSV: \n")
+print(nuevo_csv)
