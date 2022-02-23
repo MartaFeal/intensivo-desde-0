@@ -1,0 +1,33 @@
+#                        Ejercicio 4
+#   Enunciado: Utilizando la API de https://openweathermap.org/ y realizando una petición a https://api.openweathermap.org/data/2.5/weather?q={city%20name}&appid={API%20key} , obtén la temperatura máxima y mínima, para la ciudad que proporcione el usuario. 
+#       
+#   Objetivo:
+#           - Aprender a utilizar librerías externas (en este caso, requests)
+#           - Manipular el resultado de la petición (JSON)
+
+import requests 
+
+
+print("=============")
+print("EL TIEMPO EN: ")
+print("=============")
+
+ciudad = input("¿Qué ciudad quiere consultar?: ")
+
+# api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+# api_key = "85a835ab153631ef3d7b6c868578cc71"
+# unidades = &units=metrics
+
+url = "https://api.openweathermap.org/data/2.5/weather?q={}&appid=85a835ab153631ef3d7b6c868578cc71&units=metric".format(ciudad)
+
+res = requests.get(url)
+info = res.json()
+
+temp = info["main"]["temp"]
+temp_max = info["main"]["temp_max"]
+temp_min = info["main"]["temp_min"]
+
+print(f"La temperatura en {ciudad} es de {temp} ºC. \nLa máxima temperatura llegará a {temp_max} ºC y la mínima será de {temp_min} ºC")
+
+
+
