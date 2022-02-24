@@ -1,0 +1,52 @@
+#                   Ejercicio 6
+# Enunciado: Crea una función que convierta un password (entre 6 y 12 caracteres) en una cadena de texto alfanumérica de 32 caracteres. La función SIEMPRE debe devolver el mismo resultado para la misma entrada.
+#   Objetivo:
+#           - Aprender a manejar los bucles y las cadena de texto.
+#           - Mejorar la capacidad algorítmica.
+
+import string 
+import random 
+
+
+print("===========")
+print("PASSWORD A CADENA DE TEXTO")
+print("===========")
+
+caracteres = list(string.ascii_letters + string.digits)
+
+def crear_nueva():
+       
+        password()
+
+
+def password():
+        password = input("\nEscribe una contraseña que contenga entre 6 y 12 caracteres: ")
+        long=len(password)
+        condicion = True
+        while condicion:
+                if long < 6 or long > 12: 
+                        print(f"\nLa contraseña tiene {str(long)} caracteres y debe tener entre 6 y 12. Inténtelo de nuevo.")
+                        crear_nueva()
+                        break
+                else: 
+                        condicion = False
+                        return cambio_contraseña() 
+                
+
+def cambio_contraseña():
+	
+	random.shuffle(caracteres)
+	
+	password = []
+	for i in range(32):
+		password.append(random.choice(caracteres))
+
+	random.shuffle(password)
+        
+	print("\nContraseña cambiada: " + ''.join(password))
+
+
+if __name__ == '__main__':
+        crear_nueva()
+        
+
